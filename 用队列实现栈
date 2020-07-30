@@ -1,0 +1,48 @@
+class MyStack:
+
+    def __init__(self):
+        """
+        Initialize your data structure here.
+        """
+        self.A = []
+        self.B = []
+        self.Atop = 0
+        
+    def empty(self) -> bool:
+        """
+        Returns whether the stack is empty.
+        """
+        return len(self.A) == 0
+
+
+
+    def push(self, x: int) -> None:
+        """
+        Push element x onto stack.
+        """
+        self.A.append(x)
+        self.Atop = x
+        
+
+    def pop(self) -> int:
+        """
+        Removes the element on top of the stack and returns that element.
+        """
+        if not self.empty():
+            while(len(self.A)!=1):
+                self.Atop = self.A.pop(0)
+                self.B.append(self.Atop)
+            self.A,self.B = self.B,self.A
+            return self.B.pop(0)
+        else:
+            return null
+
+    def top(self) -> int:
+        """
+        Get the top element.
+        """
+        return self.Atop
+        
+
+
+    
